@@ -26,20 +26,23 @@ class Agenda {
   void exibirAgenda() {
     _pessoas.forEach((key, value) {
       print(
-        "$key : nome - ${value.nome} idade - ${value.idade} altura - ${value.altura}",
+        "$key = nome: ${value.nome} idade: ${value.idade} altura: ${value.altura}",
       );
     });
-  }
-
-  void buscarPessoa(int seletor) {
-    exibirAgenda();
-    print(_pessoas[seletor]);
   }
 
   void removerPessoa(int seletor) {
     _pessoas.remove(seletor);
 
     exibirAgenda();
+  }
+
+  void buscarPessoa(int seletor) {
+    exibirAgenda();
+    if (_pessoas.containsKey(seletor)) {
+      print(
+          "${_pessoas[seletor]?.nome} ${_pessoas[seletor]?.idade} ${_pessoas[seletor]?.altura}");
+    }
   }
 }
 
